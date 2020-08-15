@@ -16,10 +16,14 @@ export default class Direction extends Component {
 	}
 
 	async componentDidMount() {
+		const Dijkstra = require('node-dijkstra');
+		const graph = new Dijkstra(await this.getData('https://SASE-Labs-2020.github.io/assets/graph.json'));
+		const buildings = graph.path(this.props.start, this.props.end);
 		// convert ['nameOfBldg1', 'nameOfBldg2', 'nameOfBldg3'] to
 		// [['filenameOfBldg1', 'filenameOfBldg2'], ['filenameOfBldg2', 'filenameOfBldg3']]
 		const names = await this.getData('https://SASE-Labs-2020.github.io/assets/names.json');
-		const paths = this.props.buildings.reduce((acc, cur, idx, src) => idx < src.length - 1 ? acc.concat([[names[cur], names[src[idx+1]]]]) : acc, []);
+		const paths = buildings.reduce((acc, cur, idx, src) => idx < src.length - 1 ? acc.concat([[names[cur], names[src[idx+1]]]]) : acc, []);
+		// const paths = this.props.buildings.reduce((acc, cur, idx, src) => idx < src.length - 1 ? acc.concat([[names[cur], names[src[idx+1]]]]) : acc, []);
 		const urls = paths.map(path => "https://SASE-Labs-2020.github.io/assets/directions/" + path.join("_") + ".json");
 		urls.forEach(url =>
 			{return fetch(url)
