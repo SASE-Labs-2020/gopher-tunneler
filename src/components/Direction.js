@@ -23,8 +23,7 @@ export default class Direction extends Component {
 		// [['filenameOfBldg1', 'filenameOfBldg2'], ['filenameOfBldg2', 'filenameOfBldg3']]
 		const names = await this.getData('https://SASE-Labs-2020.github.io/assets/names.json');
 		const paths = buildings.reduce((acc, cur, idx, src) => idx < src.length - 1 ? acc.concat([[names[cur], names[src[idx+1]]]]) : acc, []);
-		// const paths = this.props.buildings.reduce((acc, cur, idx, src) => idx < src.length - 1 ? acc.concat([[names[cur], names[src[idx+1]]]]) : acc, []);
-		const urls = paths.map(path => "https://SASE-Labs-2020.github.io/assets/directions/" + path.join("_") + ".json");
+		const urls = paths.map(path => 'https://SASE-Labs-2020.github.io/assets/directions/' + path.join('_') + '.json');
 		urls.forEach(url =>
 			{return fetch(url)
 				.then(response => response.json())
