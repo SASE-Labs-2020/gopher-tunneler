@@ -1,60 +1,13 @@
-import React, { Component, PureComponent } from 'react';
-import { withScriptjs, withGoogleMap, GoogleMap, Marker, DirectionsRenderer } from 'react-google-maps';
+import React, { Component } from 'react';
+import ReactMapboxGl, {
+  ScaleControl,
+  ZoomControl,
+  RotationControl,
+  Layer,
+  Feature
+} from 'react-mapbox-gl';
 
-const Gmap = withScriptjs(withGoogleMap((props) =>
-	<GoogleMap
-		defaultZoom={15}
-		defaultCenter={{ lat: 44.974208, lng: -93.2325 }}
-	>
-		{props.data.map(json => <Path places={json.coordinates} travelMode={window.google.maps.TravelMode.WALKING}/>)}
-	</GoogleMap>
-));
-
-class Path extends Component {
-	state = {
-		directions: null,
-		error: null
-	};
-	
-	componentDidMount() {
-		const { places, travelMode } = this.props;
-
-		const waypoints = places.map(p =>({
-		    location: {lat: p.latitude, lng: p.longitude},
-		    stopover: true
-		}))
-		if(waypoints.length >= 2) {
-			const origin = waypoints.shift().location;
-			const destination = waypoints.pop().location;
-			
-			const directionsService = new window.google.maps.DirectionsService();
-			directionsService.route(
-				{
-					origin: origin,
-					destination: destination,
-					travelMode: travelMode,
-					waypoints: waypoints
-				},
-				(result, status) => {
-					if (status === window.google.maps.DirectionsStatus.OK) {
-						this.setState({ directions: result });
-					} 
-					// else {
-					// 	this.setState({ error: result });
-					// }
-				}
-			);
-		}
-	}
-
-
-	render() {
-		if (this.state.error) {
-			return <h1>{this.state.error}</h1>;
-		}
-		return <DirectionsRenderer directions={this.state.directions} />;
-	}
-}
+const GlMap = ReactMapboxGl({ accessToken: { token: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA' }})
 
 export default class Map extends Component {
 	constructor(props) {
@@ -120,13 +73,18 @@ export default class Map extends Component {
 
 	render() {
 		return (
-			<Gmap
-				googleMapURL={'https://maps.googleapis.com/maps/api/js?key=AIzaSyBoNSt89La0kiYqET-R-evrrX6qatlyCMw&v=3.exp&libraries=geometry,drawing,places'}
-				data={this.state.data}
-				loadingElement={<div style={{ height: `100%` }} />}
-				containerElement={<div style={{ height: `400px` }} />}
-				mapElement={<div style={{ height: `100%` }} />}
-			/>
+			<GlMap
+				center={[44.974208, -93.2325]}
+				zoom={[15]}
+			>
+				<ScaleControl/>
+				<ZoomControl/>
+				{this.state.data.map(json => 
+					<Layer type="line">
+						<Feature coordinates={json.coordinates.map(point => [point.longitude, point.latitude])}/>
+					</Layer>
+				)}
+			</GlMap>
 		);
 	}
 }
