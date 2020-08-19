@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/gopher-tunneler/static/css/main.3c93b688.chunk.css",
+    "main.js": "/gopher-tunneler/static/js/main.dafbf576.chunk.js",
+    "main.js.map": "/gopher-tunneler/static/js/main.dafbf576.chunk.js.map",
+    "runtime-main.js": "/gopher-tunneler/static/js/runtime-main.ac54bd87.js",
+    "runtime-main.js.map": "/gopher-tunneler/static/js/runtime-main.ac54bd87.js.map",
+    "static/css/2.7c35e809.chunk.css": "/gopher-tunneler/static/css/2.7c35e809.chunk.css",
+    "static/js/2.36ab2af8.chunk.js": "/gopher-tunneler/static/js/2.36ab2af8.chunk.js",
+    "static/js/2.36ab2af8.chunk.js.map": "/gopher-tunneler/static/js/2.36ab2af8.chunk.js.map",
+    "index.html": "/gopher-tunneler/index.html",
+    "precache-manifest.8152d988e2e73062de4c0fec3acee7ef.js": "/gopher-tunneler/precache-manifest.8152d988e2e73062de4c0fec3acee7ef.js",
+    "service-worker.js": "/gopher-tunneler/service-worker.js",
+    "static/css/2.7c35e809.chunk.css.map": "/gopher-tunneler/static/css/2.7c35e809.chunk.css.map",
+    "static/css/main.3c93b688.chunk.css.map": "/gopher-tunneler/static/css/main.3c93b688.chunk.css.map",
+    "static/js/2.36ab2af8.chunk.js.LICENSE.txt": "/gopher-tunneler/static/js/2.36ab2af8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ac54bd87.js",
+    "static/css/2.7c35e809.chunk.css",
+    "static/js/2.36ab2af8.chunk.js",
+    "static/css/main.3c93b688.chunk.css",
+    "static/js/main.dafbf576.chunk.js"
+  ]
+}
