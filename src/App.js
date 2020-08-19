@@ -2,7 +2,7 @@ import React from 'react';
 import './bootstrap.css';
 import Direction from './components/Direction';
 import Contributing from './components/Contributing';
-import Map from './components/Map';
+import AppMap from './components/AppMap';
 import {
   BrowserRouter as Router,
   Link,
@@ -13,7 +13,7 @@ import RouteSelection from './components/RouteSelection';
 
 function App() {
 	return (
-    <Map start={null}/>
+    <AppMap start={null}/>
   );
 }
 

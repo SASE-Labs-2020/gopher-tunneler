@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
-import ReactMapboxGl, {
-  ScaleControl,
-  ZoomControl,
-  Layer,
-  Feature
-} from 'react-mapbox-gl';
+import Leaflet from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import {
+  Map,
+  Polyline,
+  TileLayer
+} from 'react-leaflet';
+import '../map.css';
 import Spinner from 'react-bootstrap/Spinner';
 
-const GlMap = ReactMapboxGl({ accessToken: { token: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA' }})
-const lineLayout = {
-  'line-cap': 'round',
-  'line-join': 'round'
-};
 
-const linePaint = {
-  'line-color': '#4790E5',
-  'line-width': 12
-};
+Leaflet.Icon.Default.imagePath = '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/images/';
 
-export default class Map extends Component {
+export default class AppMap extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { data: [], isLoading: true };
@@ -92,18 +86,13 @@ export default class Map extends Component {
 			return <Spinner animation="border" variant="dark"/>;
 		}
 		return (
-			<GlMap
-				center={[44.974208, -93.2325]}
-				zoom={[15]}
-			>
-				<ScaleControl/>
-				<ZoomControl/>
-				{this.state.data.map(json => 
-					<Layer type="line" layout={lineLayout} paint={linePaint}>
-						<Feature coordinates={json.coordinates.map(point => [point.longitude, point.latitude])}/>
-					</Layer>
-				)}
-			</GlMap>
+			<Map center={[44.974208, -93.2325]} zoom={15}>
+				<TileLayer
+          			attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          			url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        		/>
+				<Polyline color="#0668B3" positions={this.state.data.map(json => json.coordinates.map(point => [point.latitude, point.longitude]))} />
+			</Map>
 		);
 	}
 }
