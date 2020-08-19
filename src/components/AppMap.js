@@ -29,7 +29,7 @@ export default class AppMap extends Component {
 		const graph = await this.getData('https://SASE-Labs-2020.github.io/assets/graph.json');
 		const edsger = new Dijkstra(graph);
 		const names = await this.getData('https://SASE-Labs-2020.github.io/assets/names.json');
-		if (this.props.start == null) {
+		if (this.props.start == null || this.props.start == 'null') {
 			// convert { buildingA : { buildingB: 2, buildingC: 1 }, buldingD : { buildingE: 3 } } to
 			// [[['buildingA','buildingA'],['buildingB','buildingC']], [['buildingD'], ['buildingE']]]
 			const starts_ends = Object.entries(graph).map(([start, ends]) => {
@@ -63,22 +63,24 @@ export default class AppMap extends Component {
 			// convert ['buildingA', 'buildingB', 'buildingC'] to
 			// [['filenameA', 'filenameB'], ['filenameB', 'filenameC']]
 			const paths = buildings.reduce((acc, cur, idx, src) => idx < src.length -1 ? acc.concat([[names[cur], names[src[idx+1]]]]) : acc, []);
-			urls = paths.map(path => 'https://SASE-Labs-2020.github.io/assests/directions/' + path.join('_') + '.json');
+			urls = paths.map(path => 'https://SASE-Labs-2020.github.io/assets/directions/' + path.join('_') + '.json');
 		}
 		urls.forEach(url => {
 			return fetch(url)
 			.then(response => response.json())
 			.then((responseData) => {
+				console.log(responseData);
 				this.setState(
 					(prevState) => {
 						return {
 							data: prevState.data.concat(responseData),
+							isLoading: false
 						};
 					}
 				);
 			});
 		});
-		this.setState({ isLoading: false });
+		// this.setState({ isLoading: false });
 	}
 
 	render() {

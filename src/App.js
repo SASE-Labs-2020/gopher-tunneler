@@ -8,12 +8,13 @@ import {
   Link,
   useLocation
 } from "react-router-dom";
+import Header from './components/Header';
 import RouteSelection from './components/RouteSelection';
 
 
 function App() {
 	return (
-    <AppMap start={null}/>
+    <Header/>
   );
 }
 
