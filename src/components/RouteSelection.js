@@ -24,13 +24,13 @@ export default class RouteSelection extends Component {
             <Card text="dark">
                 <Form as='form' action='/directions' method='GET' id='rs'>
                     <Form.Group controlId="start">
-                        <Form.Label>Choose a start building</Form.Label>
+                        <Form.Label>Choose a Start Building</Form.Label>
                         <Form.Control as="select" name="start" id="start" form='rs' required>
                             {this.state.data.map(name => <option value={name}>{name}</option>)}
                         </Form.Control>
                     </Form.Group>
                     <Form.Group controlId="end">
-                        <Form.Label>Choose a end building</Form.Label>
+                        <Form.Label>Choose an End Building</Form.Label>
                         <Form.Control as="select" name="end" id="end" form='rs' required>
                             {this.state.data.map(name => <option value={name}>{name}</option>)}
                         </Form.Control>
