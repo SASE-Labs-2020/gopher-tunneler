@@ -86,9 +86,10 @@ function HeaderComponent() {
 }
 
 export default function Header() {
+	document.title = 'Gopher Tunneler'
 	return (
-		<Router>
+		<Router basename={`${process.env.PUBLIC_URL}/`}>
 			<HeaderComponent/>
 		</Router>
-	)
+	);
 }
