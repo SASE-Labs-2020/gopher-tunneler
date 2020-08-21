@@ -22,7 +22,7 @@ export default class RouteSelection extends Component {
     render() {
         return (
             <Card text="dark">
-                <Form as='form' action='/map' method='GET' id='rs'>
+                <Form as='form' action='/directions' method='GET' id='rs'>
                     <Form.Group controlId="start">
                         <Form.Label>Choose a start building</Form.Label>
                         <Form.Control as="select" name="start" id="start" form='rs' required>
@@ -35,7 +35,7 @@ export default class RouteSelection extends Component {
                             {this.state.data.map(name => <option value={name}>{name}</option>)}
                         </Form.Control>
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button variant="secondary" type="submit">
                         Submit
                     </Button>
                 </Form>

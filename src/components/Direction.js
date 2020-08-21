@@ -3,11 +3,24 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Figure from 'react-bootstrap/Figure';
+import Card from 'react-bootstrap/Card';
+
+function NoPaths() {
+	return (
+		<Card text="dark">
+			<Card.Body>
+				<Card.Title>Path not found</Card.Title>
+				<Card.Subtitle className="mb-2 text-muted">You can't use the Gopher Way to get between the two buildings you selected</Card.Subtitle>
+				<Card.Link href="/">Try again</Card.Link>
+			</Card.Body>
+		</Card>
+	);
+}
 
 export default class Direction extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { data: [] };
+		this.state = { data: [], noPath: false };
 	}
 
 	async getData(url) {
@@ -21,27 +34,32 @@ export default class Direction extends Component {
 		const buildings = graph.path(this.props.start, this.props.end);
 		// convert ['nameOfBldg1', 'nameOfBldg2', 'nameOfBldg3'] to
 		// [['filenameOfBldg1', 'filenameOfBldg2'], ['filenameOfBldg2', 'filenameOfBldg3']]
-		const names = await this.getData('https://SASE-Labs-2020.github.io/assets/names.json');
-		const paths = buildings.reduce((acc, cur, idx, src) => idx < src.length - 1 ? acc.concat([[names[cur], names[src[idx+1]]]]) : acc, []);
-		const urls = paths.map(path => 'https://SASE-Labs-2020.github.io/assets/directions/' + path.join('_') + '.json');
-		urls.forEach(url =>
-			{return fetch(url)
-				.then(response => response.json())
-        			.then((responseData) => {
-					console.log(responseData);
-          				this.setState(
-							(prevState) => {
-								return {
-									data: prevState.data.concat(responseData),
-									isLoading: false,
-								};
-							}
-          				);
+		if (buildings) {
+			const names = await this.getData('https://SASE-Labs-2020.github.io/assets/names.json');
+			const paths = buildings.reduce((acc, cur, idx, src) => idx < src.length - 1 ? acc.concat([[names[cur], names[src[idx+1]]]]) : acc, []);
+			const urls = paths.map(path => 'https://SASE-Labs-2020.github.io/assets/directions/' + path.join('_') + '.json');
+			urls.forEach(url => {
+				return fetch(url)
+					.then(response => response.json())
+  	      			.then((responseData) => {
+  	        				this.setState(
+								(prevState) => {
+									return {
+										data: prevState.data.concat(responseData)
+									};
+								}
+  	        				);
 					});
-    		});
+			});
+		} else {
+			this.setState({ noPath: true });
+		}
 	}
 
 	render() {
+		if (this.state.noPath) {
+			return <NoPaths/>;
+		}
 		return (
 			<Tabs defaultActiveKey="0">
 				{this.state.data.map((data, idx) =>

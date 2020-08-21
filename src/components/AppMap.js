@@ -8,14 +8,28 @@ import {
 } from 'react-leaflet';
 import '../map.css';
 import Spinner from 'react-bootstrap/Spinner';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
-
+// pull images from cdn instead of storing locally
 Leaflet.Icon.Default.imagePath = '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/images/';
+
+function NoPaths() {
+	return (
+		<Card text="dark">
+			<Card.Body>
+				<Card.Title>Path not found</Card.Title>
+				<Card.Subtitle className="mb-2 text-muted">You can't use the Gopher Way to get between the two buildings you selected</Card.Subtitle>
+				<Button href="/">Try again</Button>
+			</Card.Body>
+		</Card>
+	);
+}
 
 export default class AppMap extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { data: [], isLoading: true };
+		this.state = { data: [], isLoading: true, noPath: false };
 	}
 
 	async getData(url) {
@@ -60,6 +74,9 @@ export default class AppMap extends Component {
 			urls = [].concat.apply([], unflattened_urls);
 		} else {
 			const buildings = edsger.path(this.props.start, this.props.end);
+			if (!buildings) {
+				return this.setState({ isLoading: false, noPath: true });
+			}
 			// convert ['buildingA', 'buildingB', 'buildingC'] to
 			// [['filenameA', 'filenameB'], ['filenameB', 'filenameC']]
 			const paths = buildings.reduce((acc, cur, idx, src) => idx < src.length -1 ? acc.concat([[names[cur], names[src[idx+1]]]]) : acc, []);
@@ -80,12 +97,14 @@ export default class AppMap extends Component {
 				);
 			});
 		});
-		// this.setState({ isLoading: false });
 	}
 
 	render() {
 		if (this.state.isLoading) {
 			return <Spinner animation="border" variant="dark"/>;
+		}
+		if (this.state.noPath) {
+			return <NoPaths/>;
 		}
 		return (
 			<Map center={[44.974208, -93.2325]} zoom={15}>

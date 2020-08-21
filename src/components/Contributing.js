@@ -20,7 +20,7 @@ The preferred way of contributing is to create an issue on GitHub. You do not ne
 					<Card.Text>
 If you do not want to create a GitHub account, you may submit an anonymous Google form.
 					</Card.Text>
-					<Button variant="primary" href="https://forms.gle/PUGtoRsrAP3jrcj67">Submit the form</Button>
+					<Button variant="secondary" href="https://forms.gle/PUGtoRsrAP3jrcj67">Submit the form</Button>
 				</Card.Body>
 			</Card>
 		)

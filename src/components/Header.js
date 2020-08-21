@@ -12,6 +12,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import logo from '../sase_logo.png';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -58,6 +59,9 @@ function HeaderComponent() {
 	return (
 		<div>
 			<Navbar>
+				<Navbar.Brand href="https://saseumn.org">
+					<img src={logo} height='30vh'/>{' '}
+				</Navbar.Brand>
 				<Nav>
 					<Nav.Link><Link to={`/?start=${query.get('start')}&end=${query.get('end')}`}>Route Selection</Link></Nav.Link>
 					<Nav.Link><Link to={`/map?start=${query.get('start')}&end=${query.get('end')}`}>Map</Link></Nav.Link>
