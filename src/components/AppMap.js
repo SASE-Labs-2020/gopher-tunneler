@@ -8,23 +8,10 @@ import {
 } from 'react-leaflet';
 import '../map.css';
 import Spinner from 'react-bootstrap/Spinner';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import { NoPaths, getData } from '../Shared';
 
 // pull images from cdn instead of storing locally
 Leaflet.Icon.Default.imagePath = '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/images/';
-
-function NoPaths() {
-	return (
-		<Card text="dark">
-			<Card.Body>
-				<Card.Title>Path not found</Card.Title>
-				<Card.Subtitle className="mb-2 text-muted">You can't use the Gopher Way to get between the two buildings you selected</Card.Subtitle>
-				<Button href="/">Try again</Button>
-			</Card.Body>
-		</Card>
-	);
-}
 
 export default class AppMap extends Component {
 	constructor(props) {
@@ -32,18 +19,13 @@ export default class AppMap extends Component {
 		this.state = { data: [], isLoading: true, noPath: false };
 	}
 
-	async getData(url) {
-		const response = await fetch(url);
-		return response.json();
-	}
-
 	async componentWillMount() {
 		var urls;
 		const Dijkstra = require('node-dijkstra');
-		const graph = await this.getData('https://SASE-Labs-2020.github.io/assets/graph.json');
+		const graph = await getData('https://SASE-Labs-2020.github.io/assets/graph.json');
 		const edsger = new Dijkstra(graph);
-		const names = await this.getData('https://SASE-Labs-2020.github.io/assets/names.json');
-		if (this.props.start == null || this.props.start == 'null') {
+		const names = await getData('https://SASE-Labs-2020.github.io/assets/names.json');
+		if (this.props.start == null || this.props.start === 'null') {
 			// convert { buildingA : { buildingB: 2, buildingC: 1 }, buldingD : { buildingE: 3 } } to
 			// [[['buildingA','buildingA'],['buildingB','buildingC']], [['buildingD'], ['buildingE']]]
 			const starts_ends = Object.entries(graph).map(([start, ends]) => {

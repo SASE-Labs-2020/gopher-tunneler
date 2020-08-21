@@ -58,9 +58,9 @@ function HeaderComponent() {
 
 	return (
 		<div>
-			<Navbar>
+			<Navbar bg='primary'>
 				<Navbar.Brand href="https://saseumn.org">
-					<img src={logo} height='30vh'/>{' '}
+					<img src={logo} alt='SASE Logo' height='30vh'/>{' '}
 				</Navbar.Brand>
 				<Nav>
 					<Nav.Link><Link to={`/?start=${query.get('start')}&end=${query.get('end')}`}>Route Selection</Link></Nav.Link>
@@ -70,14 +70,16 @@ function HeaderComponent() {
 				</Nav>
 			</Navbar>
 			<Switch>
-				{routes.map((route, index) => (
-					<Route
-						key={index}
-						path={route.path}
-						exact={route.exact}
-						children={<route.main />}
-					/>
-				))}
+				<div style={{ 'padding-top': 20 }}>
+					{routes.map((route, index) => (
+						<Route
+							key={index}
+							path={route.path}
+							exact={route.exact}
+							children={<route.main/>}
+						/>
+					))}
+				</div>
 			</Switch>
 		</div>
 	);

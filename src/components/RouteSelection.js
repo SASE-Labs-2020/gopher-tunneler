@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
+import { getData } from '../Shared';
 
 export default class RouteSelection extends Component {
     constructor(props) {
@@ -15,7 +16,7 @@ export default class RouteSelection extends Component {
 	}
 
     async componentDidMount() {
-        const names = Object.keys(await this.getData('https://SASE-Labs-2020.github.io/assets/names.json'));
+        const names = Object.keys(await getData('https://SASE-Labs-2020.github.io/assets/names.json'));
         this.setState({ data: names })
     }
 

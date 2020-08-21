@@ -14,7 +14,7 @@
 
   --bodyText: white;
   --txtMuted: #cacaca;
-  --bodyBkgd: var(--saseG);
+  --bodyBkgd: var(--saseBLt);
 
   --jumbotronBkgd: var(--saseG);
   --headingBorder: var(--saseInBtwn);
