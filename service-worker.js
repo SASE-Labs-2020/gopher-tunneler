@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/gopher-tunneler/precache-manifest.8b0221e4f4ddab9adefac30c89692228.js"
+  "/gopher-tunneler/precache-manifest.ee52d3f6114fd4ac28c0358e36621ec8.js"
 );
 
 self.addEventListener('message', (event) => {
