@@ -22,7 +22,7 @@ export default class RouteSelection extends Component {
     render() {
         return (
             <Card text="dark">
-                <Form as='form' action='/map' method='GET' id='rs'>
+                <Form as='form' action='/directions' method='GET' id='rs'>
                     <Form.Group controlId="start">
                         <Form.Label>Choose a Start Building</Form.Label>
                         <Form.Control as="select" name="start" id="start" form='rs' required>
