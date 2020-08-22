@@ -58,16 +58,19 @@ function HeaderComponent() {
 
 	return (
 		<div>
-			<Navbar bg='primary'>
+			<Navbar bg='primary' expand=''>
 				<Navbar.Brand href="https://saseumn.org">
 					<img src={logo} alt='SASE Logo' height='30vh'/>{' '}
 				</Navbar.Brand>
-				<Nav>
-					<Nav.Link><Link to={`/?start=${query.get('start')}&end=${query.get('end')}`}>Route Selection</Link></Nav.Link>
-					<Nav.Link><Link to={`/map?start=${query.get('start')}&end=${query.get('end')}`}>Map</Link></Nav.Link>
-					<Nav.Link><Link to={`/directions?start=${query.get('start')}&end=${query.get('end')}`}>Directions</Link></Nav.Link>
-					<Nav.Link><Link to={`/contributing?start=${query.get('start')}&end=${query.get('end')}`}>Contributing</Link></Nav.Link>
-				</Nav>
+				<Navbar.Toggle style={{ 'background-color': '#7DC242' }}aria-controls="basic-navbar-nav" />
+				<Navbar.Collapse id="basic-navbar-nav">
+					<Nav>
+						<Nav.Link><Link to={`/?start=${query.get('start')}&end=${query.get('end')}`}>Route Selection</Link></Nav.Link>
+						<Nav.Link><Link to={`/map?start=${query.get('start')}&end=${query.get('end')}`}>Map</Link></Nav.Link>
+						<Nav.Link><Link to={`/directions?start=${query.get('start')}&end=${query.get('end')}`}>Directions</Link></Nav.Link>
+						<Nav.Link><Link to={`/contributing?start=${query.get('start')}&end=${query.get('end')}`}>Contributing</Link></Nav.Link>
+					</Nav>
+				</Navbar.Collapse>
 			</Navbar>
 			<Switch>
 				<div style={{ 'padding-top': 20 }}>

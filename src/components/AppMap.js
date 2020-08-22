@@ -4,7 +4,9 @@ import 'leaflet/dist/leaflet.css';
 import {
   Map,
   Polyline,
-  TileLayer
+  TileLayer,
+  Marker,
+  Popup
 } from 'react-leaflet';
 import '../map.css';
 import Spinner from 'react-bootstrap/Spinner';
@@ -16,11 +18,13 @@ Leaflet.Icon.Default.imagePath = '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4
 export default class AppMap extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { data: [], isLoading: true, noPath: false };
+		this.state = { data: [], markerData: [], isLoading: true, noPath: false };
 	}
 
 	async componentWillMount() {
+		// urls for the direction jsons
 		var urls;
+		var marker_urls;
 		const Dijkstra = require('node-dijkstra');
 		const graph = await getData('https://SASE-Labs-2020.github.io/assets/graph.json');
 		const edsger = new Dijkstra(graph);
@@ -54,6 +58,7 @@ export default class AppMap extends Component {
 				)
 			);
 			urls = [].concat.apply([], unflattened_urls);
+			marker_urls = Object.values(names).map(name => 'https://SASE-Labs-2020.github.io/assets/informations/' + name + '.json');
 		} else {
 			const buildings = edsger.path(this.props.start, this.props.end);
 			if (!buildings) {
@@ -63,6 +68,7 @@ export default class AppMap extends Component {
 			// [['filenameA', 'filenameB'], ['filenameB', 'filenameC']]
 			const paths = buildings.reduce((acc, cur, idx, src) => idx < src.length -1 ? acc.concat([[names[cur], names[src[idx+1]]]]) : acc, []);
 			urls = paths.map(path => 'https://SASE-Labs-2020.github.io/assets/directions/' + path.join('_') + '.json');
+			marker_urls = buildings.map(building => 'https://SASE-Labs-2020.github.io/assets/informations/' + names[building] + '.json');
 		}
 		urls.forEach(url => {
 			return fetch(url)
@@ -73,6 +79,21 @@ export default class AppMap extends Component {
 					(prevState) => {
 						return {
 							data: prevState.data.concat(responseData),
+							isLoading: false
+						};
+					}
+				);
+			});
+		});
+		marker_urls.forEach(url => {
+			return fetch(url)
+			.then(response => response.json())
+			.then((responseData) => {
+				console.log(responseData);
+				this.setState(
+					(prevState) => {
+						return {
+							markerData: prevState.markerData.concat(responseData),
 							isLoading: false
 						};
 					}
@@ -95,6 +116,18 @@ export default class AppMap extends Component {
           			url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         		/>
 				<Polyline color="#0668B3" positions={this.state.data.map(json => json.coordinates.map(point => [point.latitude, point.longitude]))} />
+				{this.state.markerData.map(json => {
+					return (
+						<Marker position={[json.location.latitude, json.location.longitude]}>
+							<Popup>
+								<h4>{json.building}</h4>
+								{json.info.university ? <h6>{json.info.university}</h6> : null}
+								{json.info.public ? <h6>{json.info.public}</h6> : null}
+								{json.info.accessibility ? <h6>{json.info.accessibility}</h6> : null}
+							</Popup>
+						</Marker>
+					);
+				})}
 			</Map>
 		);
 	}
