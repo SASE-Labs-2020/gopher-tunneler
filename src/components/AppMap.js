@@ -11,6 +11,8 @@ import {
 import '../map.css';
 import Spinner from 'react-bootstrap/Spinner';
 import { NoPaths, getData } from '../Shared';
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 
 // pull images from cdn instead of storing locally
 Leaflet.Icon.Default.imagePath = '//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/images/';
@@ -29,7 +31,7 @@ export default class AppMap extends Component {
 		const graph = await getData('https://SASE-Labs-2020.github.io/assets/graph.json');
 		const edsger = new Dijkstra(graph);
 		const names = await getData('https://SASE-Labs-2020.github.io/assets/names.json');
-		if (this.props.start == null || this.props.start === 'null') {
+		if (this.props.start === 'null') {
 			// convert { buildingA : { buildingB: 2, buildingC: 1 }, buldingD : { buildingE: 3 } } to
 			// [[['buildingA','buildingA'],['buildingB','buildingC']], [['buildingD'], ['buildingE']]]
 			const starts_ends = Object.entries(graph).map(([start, ends]) => {
@@ -48,10 +50,10 @@ export default class AppMap extends Component {
 					(path) => {
 						const new_path = [names[path[0]], names[path[1]]];
 						if (!names[path[0]]) {
-							console.log(path[0]);
+							console.log('Please submit a contribution to fix this: ' + path[0]);
 						}
 						if (!names[path[1]]) {
-							console.log(path[1]);
+							console.log('Please submit a contribution to fix this: ' + path[1]);
 						}
 						return 'https://SASE-Labs-2020.github.io/assets/directions/' + new_path.join('_') + '.json';
 					}
@@ -74,7 +76,6 @@ export default class AppMap extends Component {
 			return fetch(url)
 			.then(response => response.json())
 			.then((responseData) => {
-				console.log(responseData);
 				this.setState(
 					(prevState) => {
 						return {
@@ -89,7 +90,6 @@ export default class AppMap extends Component {
 			return fetch(url)
 			.then(response => response.json())
 			.then((responseData) => {
-				console.log(responseData);
 				this.setState(
 					(prevState) => {
 						return {
@@ -110,25 +110,30 @@ export default class AppMap extends Component {
 			return <NoPaths/>;
 		}
 		return (
-			<Map center={[44.974208, -93.2325]} zoom={15}>
-				<TileLayer
-          			attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          			url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        		/>
-				<Polyline color="#0668B3" positions={this.state.data.map(json => json.coordinates.map(point => [point.latitude, point.longitude]))} />
-				{this.state.markerData.map(json => {
-					return (
-						<Marker position={[json.location.latitude, json.location.longitude]}>
-							<Popup>
-								<h4>{json.building}</h4>
-								{json.info.university ? <h6>{json.info.university}</h6> : null}
-								{json.info.public ? <h6>{json.info.public}</h6> : null}
-								{json.info.accessibility ? <h6>{json.info.accessibility}</h6> : null}
-							</Popup>
-						</Marker>
-					);
-				})}
-			</Map>
+			<Tabs defaultActiveKey='map' variant='pills'>
+				<Tab eventKey='map' title={this.props.start === 'null' ? 'All Buildings and Paths' : `${this.props.start} to ${this.props.end}`}>
+					<Map center={[44.974208, -93.2325]} zoom={15}>
+						<TileLayer
+   		       			attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+   		       			url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+   		     		/>
+						<Polyline color="#0668B3" positions={this.state.data.map(json => json.coordinates.map(point => [point.latitude, point.longitude]))} />
+						{this.state.markerData.map(json => {
+							return (
+								<Marker position={[json.location.latitude, json.location.longitude]}>
+									<Popup>
+										<h3>{json.building}</h3>
+										{json.info.university ? <h8 style={{ 'white-space': 'pre-line' }}>{json.info.university}<br/><br/></h8> : null}
+										{json.info.public ? <h8 style={{ 'white-space': 'pre-line' }}>{json.info.public}<br/><br/></h8> : null}
+										{json.info.accessibility ? <h8 style={{ 'white-space': 'pre-line' }}>{json.info.accessibility}<br/><br/></h8> : null}
+									</Popup>
+								</Marker>
+							);
+						})}
+					</Map>
+				</Tab>
+				{this.props.start === 'null' ? null : <Tab eventKey='reset' title={<a onClick={() => window.location.href = `${process.env.PUBLIC_URL}/map?start=null&end=null`}>Reset Map</a>}/>}
+			</Tabs>
 		);
 	}
 }

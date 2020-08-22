@@ -4,6 +4,7 @@ import Direction from './Direction';
 import Contributing from './Contributing';
 import RouteSelection from './RouteSelection';
 import AppMap from './AppMap';
+import About from './About';
 import { Nav } from 'react-bootstrap';
 import {
   BrowserRouter as Router,
@@ -50,6 +51,10 @@ var routes = [
 	{
 		path: '/contributing',
 		main: () => <Contributing/>
+	},
+	{
+		path: '/about',
+		main: () => <About/>
 	}
 ]
 
@@ -59,21 +64,22 @@ function HeaderComponent() {
 	return (
 		<div>
 			<Navbar bg='primary' expand=''>
-				<Navbar.Brand href="https://saseumn.org">
+				<Navbar.Brand href={`${process.env.PUBLIC_URL}/`}>
 					<img src={logo} alt='SASE Logo' height='30vh'/>{' '}
 				</Navbar.Brand>
-				<Navbar.Toggle style={{ 'background-color': '#7DC242' }}aria-controls="basic-navbar-nav" />
+				<Navbar.Toggle style={{ 'backgroundColor': '#7DC242' }}aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav>
 						<Nav.Link><Link to={`/?start=${query.get('start')}&end=${query.get('end')}`}>Route Selection</Link></Nav.Link>
 						<Nav.Link><Link to={`/map?start=${query.get('start')}&end=${query.get('end')}`}>Map</Link></Nav.Link>
 						<Nav.Link><Link to={`/directions?start=${query.get('start')}&end=${query.get('end')}`}>Directions</Link></Nav.Link>
 						<Nav.Link><Link to={`/contributing?start=${query.get('start')}&end=${query.get('end')}`}>Contributing</Link></Nav.Link>
+						<Nav.Link><Link to={`/about?start=${query.get('start')}&end=${query.get('end')}`}>About</Link></Nav.Link>
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>
 			<Switch>
-				<div style={{ 'padding-top': 20 }}>
+				<div style={{ 'paddingTop': 20 }}>
 					{routes.map((route, index) => (
 						<Route
 							key={index}

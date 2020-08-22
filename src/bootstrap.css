@@ -41,7 +41,7 @@
   --btn2Hover: var(--saseGDrk);
   --btn2HoverBrdr: var(--saseInBtwnDrk);
 
-  --directionsBkgd: var(--saseB);
+  --directionsBkgd: var(--saseBLt);
   --directionsTxt: white;
   --directionsImgCaptn: white;
 
@@ -4332,6 +4332,7 @@ input[type="button"].btn-block {
 .nav-tabs .nav-item {
   margin-bottom: -1px;
   font-size: 1.5rem;
+  background-color: var(--dark);
 }
 
 .nav-tabs .nav-link {
@@ -4365,12 +4366,13 @@ input[type="button"].btn-block {
 
 .nav-pills .nav-link {
   border-radius: 0.25rem;
+  background-color: var(--dark);
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #007bff;
+  background-color: var(--saseG);
 }
 
 .nav-fill .nav-item {
@@ -4868,7 +4870,7 @@ input[type="button"].btn-block {
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 

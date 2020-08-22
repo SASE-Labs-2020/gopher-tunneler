@@ -3,6 +3,9 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Figure from 'react-bootstrap/Figure';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Accordion from 'react-bootstrap/Accordion';
 import { NoPaths, getData } from '../Shared';
 
 export default class Direction extends Component {
@@ -21,8 +24,8 @@ export default class Direction extends Component {
 			const names = await getData('https://SASE-Labs-2020.github.io/assets/names.json');
 			const paths = buildings.reduce((acc, cur, idx, src) => idx < src.length - 1 ? acc.concat([[names[cur], names[src[idx+1]]]]) : acc, []);
 			const urls = paths.map(path => 'https://SASE-Labs-2020.github.io/assets/directions/' + path.join('_') + '.json');
-			urls.forEach(url => {
-				return fetch(url)
+			urls.forEach(async url => {
+				return await fetch(url)
 					.then(response => response.json())
   	      			.then((responseData) => {
   	        				this.setState(
@@ -44,9 +47,13 @@ export default class Direction extends Component {
 			return <NoPaths/>;
 		}
 		return (
-			<Tabs defaultActiveKey="0">
+			<Accordion defaultActiveKey='0'>
 				{this.state.data.map((data, idx) =>
-						<Tab eventKey={`${idx}`} title={`${data.origin} to ${data.destination}`}>
+					<Card>
+						<Accordion.Toggle as={Card.Header} eventKey={`${idx}`}>
+							{`${data.origin} to ${data.destination}`}
+						</Accordion.Toggle>
+						<Accordion.Collapse eventKey={`${idx}`}>
 							<ListGroup>
 								{data.info.map(item =>
 										<ListGroup.Item variant="primary">
@@ -59,10 +66,10 @@ export default class Direction extends Component {
 									)
 								}
 							</ListGroup>
-						</Tab>
-					)
-				}
-			</Tabs>
-		)
+						</Accordion.Collapse>
+					</Card>
+				)}
+			</Accordion>
+		);
 	}
 }
