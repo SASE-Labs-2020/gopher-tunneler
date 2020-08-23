@@ -15,10 +15,10 @@ export default function About() {
                 <Card.Text>
                     'Gopher Tunneler' allows you to navigate the Gopher Way at the University of Minnesota's Twin Cities campus.
                     The tunnel system is a maze-like labyrinth; get a better idea of it on the 'Map' tab. 
-                    <br/>
+                    <br/><br/>
                     Want to get somewhere quick? Select your start and end points on the 'Route Selection' tab. You'll get instructions to get from 
                     building to building when you hit submit. 
-                    <br/>
+                    <br/><br/>
                     The app is based on incomplete research of the tunnels. If you
                     have captioned pictures and written instructions to navigate the Gopher Way, please send them to use via the
                     'Contributing' tab!

@@ -132,7 +132,7 @@ export default class AppMap extends Component {
 						})}
 					</Map>
 				</Tab>
-				{this.props.start === 'null' ? null : <Tab eventKey='reset' title={<a onClick={() => window.location.href = `${process.env.PUBLIC_URL}/map?start=null&end=null`}>Reset Map</a>}/>}
+				{this.props.start === 'null' ? null : <Tab eventKey='reset' title={<a href={`${process.env.PUBLIC_URL}/map?start=null&end=null`} onClick={() => window.location.href = `${process.env.PUBLIC_URL}/map?start=null&end=null`}>Reset Map</a>}/>}
 			</Tabs>
 		);
 	}
