@@ -21,19 +21,10 @@ export default class Direction extends Component {
 			const names = await getData('https://SASE-Labs-2020.github.io/assets/names.json');
 			const paths = buildings.reduce((acc, cur, idx, src) => idx < src.length - 1 ? acc.concat([[names[cur], names[src[idx+1]]]]) : acc, []);
 			const urls = paths.map(path => 'https://SASE-Labs-2020.github.io/assets/directions/' + path.join('_') + '.json');
-			urls.forEach(async url => {
-				return await fetch(url)
-					.then(response => response.json())
-  	      			.then((responseData) => {
-  	        				this.setState(
-								(prevState) => {
-									return {
-										data: prevState.data.concat(responseData)
-									};
-								}
-  	        				);
-					});
-			});
+			// preserve order using a map rather than a async iterative calls
+			const getAll = async () => Promise.all(urls.map(url => getData(url)));
+			const data = await getAll();
+			this.setState({ data: data });
 		} else {
 			this.setState({ noPath: true });
 		}
