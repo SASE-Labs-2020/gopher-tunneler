@@ -47,7 +47,17 @@ export default class RouteSelection extends Component {
                     </Form.Group>
                     <Button variant="secondary">
                         <Link to={`/directions?start=${this.state.start}&end=${this.state.end}`}>
-                            Submit
+                            Get Directions
+                        </Link>
+                    </Button>{' '}
+                    <Button variant="secondary">
+                        <Link to={`/map?start=${this.state.start}&end=${this.state.end}`}>
+                            See Path
+                        </Link>
+                    </Button>{' '}
+                    <Button variant="secondary">
+                        <Link to={`/map?start=null&end=null`}>
+                            See all Paths
                         </Link>
                     </Button>
                 </Form>
