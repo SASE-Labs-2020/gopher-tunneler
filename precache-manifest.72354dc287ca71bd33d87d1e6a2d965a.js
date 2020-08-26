@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "74612257018a2dcd025674e1da666214",
+    "revision": "62b609f4177aa3e9208b119210df50a2",
     "url": "/gopher-tunneler/index.html"
   },
   {
-    "revision": "d80dad773e4bb0414022",
+    "revision": "526e4d8ea3cd2ab7b5f1",
     "url": "/gopher-tunneler/static/css/2.7c35e809.chunk.css"
   },
   {
-    "revision": "38d09a05e64205360b43",
-    "url": "/gopher-tunneler/static/css/main.393acb51.chunk.css"
+    "revision": "38c4ab7adeb5bf70116a",
+    "url": "/gopher-tunneler/static/css/main.69a5c4ed.chunk.css"
   },
   {
-    "revision": "d80dad773e4bb0414022",
-    "url": "/gopher-tunneler/static/js/2.125c1473.chunk.js"
+    "revision": "526e4d8ea3cd2ab7b5f1",
+    "url": "/gopher-tunneler/static/js/2.75b9fb6d.chunk.js"
   },
   {
     "revision": "6791e7fb9584d65ed87d655035c7da95",
-    "url": "/gopher-tunneler/static/js/2.125c1473.chunk.js.LICENSE.txt"
+    "url": "/gopher-tunneler/static/js/2.75b9fb6d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "38d09a05e64205360b43",
-    "url": "/gopher-tunneler/static/js/main.fa3fa630.chunk.js"
+    "revision": "38c4ab7adeb5bf70116a",
+    "url": "/gopher-tunneler/static/js/main.4cea0149.chunk.js"
   },
   {
     "revision": "128d63b9752d672be0ee",
