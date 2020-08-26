@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/gopher-tunneler/static/css/main.30bd92b7.chunk.css",
-    "main.js": "/gopher-tunneler/static/js/main.6c072947.chunk.js",
-    "main.js.map": "/gopher-tunneler/static/js/main.6c072947.chunk.js.map",
+    "main.css": "/gopher-tunneler/static/css/main.393acb51.chunk.css",
+    "main.js": "/gopher-tunneler/static/js/main.fa3fa630.chunk.js",
+    "main.js.map": "/gopher-tunneler/static/js/main.fa3fa630.chunk.js.map",
     "runtime-main.js": "/gopher-tunneler/static/js/runtime-main.ac54bd87.js",
     "runtime-main.js.map": "/gopher-tunneler/static/js/runtime-main.ac54bd87.js.map",
     "static/css/2.7c35e809.chunk.css": "/gopher-tunneler/static/css/2.7c35e809.chunk.css",
-    "static/js/2.70d0a94f.chunk.js": "/gopher-tunneler/static/js/2.70d0a94f.chunk.js",
-    "static/js/2.70d0a94f.chunk.js.map": "/gopher-tunneler/static/js/2.70d0a94f.chunk.js.map",
+    "static/js/2.125c1473.chunk.js": "/gopher-tunneler/static/js/2.125c1473.chunk.js",
+    "static/js/2.125c1473.chunk.js.map": "/gopher-tunneler/static/js/2.125c1473.chunk.js.map",
     "index.html": "/gopher-tunneler/index.html",
-    "precache-manifest.1b93afc29b90adc335800b2e08b77d48.js": "/gopher-tunneler/precache-manifest.1b93afc29b90adc335800b2e08b77d48.js",
+    "precache-manifest.b835fdeb645ecf41847fe95f62054a0c.js": "/gopher-tunneler/precache-manifest.b835fdeb645ecf41847fe95f62054a0c.js",
     "service-worker.js": "/gopher-tunneler/service-worker.js",
     "static/css/2.7c35e809.chunk.css.map": "/gopher-tunneler/static/css/2.7c35e809.chunk.css.map",
-    "static/css/main.30bd92b7.chunk.css.map": "/gopher-tunneler/static/css/main.30bd92b7.chunk.css.map",
-    "static/js/2.70d0a94f.chunk.js.LICENSE.txt": "/gopher-tunneler/static/js/2.70d0a94f.chunk.js.LICENSE.txt",
+    "static/css/main.393acb51.chunk.css.map": "/gopher-tunneler/static/css/main.393acb51.chunk.css.map",
+    "static/js/2.125c1473.chunk.js.LICENSE.txt": "/gopher-tunneler/static/js/2.125c1473.chunk.js.LICENSE.txt",
     "static/media/sase_logo.png": "/gopher-tunneler/static/media/sase_logo.a97b4e53.png"
   },
   "entrypoints": [
     "static/js/runtime-main.ac54bd87.js",
     "static/css/2.7c35e809.chunk.css",
-    "static/js/2.70d0a94f.chunk.js",
-    "static/css/main.30bd92b7.chunk.css",
-    "static/js/main.6c072947.chunk.js"
+    "static/js/2.125c1473.chunk.js",
+    "static/css/main.393acb51.chunk.css",
+    "static/js/main.fa3fa630.chunk.js"
   ]
 }
