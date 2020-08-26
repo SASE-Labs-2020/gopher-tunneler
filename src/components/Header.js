@@ -13,7 +13,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import logo from '../sase_logo.png';
+import logo from '../GopherTnlr.PNG';
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -65,7 +65,8 @@ function HeaderComponent() {
 		<div>
 			<Navbar bg='primary' expand=''>
 				<Navbar.Brand href={`${process.env.PUBLIC_URL}/`}>
-					<img src={logo} alt='SASE Logo' height='30vh'/>{' '}
+					<img src={logo} alt='GT Logo' height='30vh'/>{' '}
+					Gopher Tunneler
 				</Navbar.Brand>
 				<Navbar.Toggle style={{ 'backgroundColor': '#7DC242' }}aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
