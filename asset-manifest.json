@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/gopher-tunneler/static/css/main.69a5c4ed.chunk.css",
-    "main.js": "/gopher-tunneler/static/js/main.c476087b.chunk.js",
-    "main.js.map": "/gopher-tunneler/static/js/main.c476087b.chunk.js.map",
-    "runtime-main.js": "/gopher-tunneler/static/js/runtime-main.ac54bd87.js",
-    "runtime-main.js.map": "/gopher-tunneler/static/js/runtime-main.ac54bd87.js.map",
-    "static/css/2.7c35e809.chunk.css": "/gopher-tunneler/static/css/2.7c35e809.chunk.css",
-    "static/js/2.75b9fb6d.chunk.js": "/gopher-tunneler/static/js/2.75b9fb6d.chunk.js",
-    "static/js/2.75b9fb6d.chunk.js.map": "/gopher-tunneler/static/js/2.75b9fb6d.chunk.js.map",
-    "index.html": "/gopher-tunneler/index.html",
-    "precache-manifest.84a209631d4ac8b4bef3181e973089b6.js": "/gopher-tunneler/precache-manifest.84a209631d4ac8b4bef3181e973089b6.js",
-    "service-worker.js": "/gopher-tunneler/service-worker.js",
-    "static/css/2.7c35e809.chunk.css.map": "/gopher-tunneler/static/css/2.7c35e809.chunk.css.map",
-    "static/css/main.69a5c4ed.chunk.css.map": "/gopher-tunneler/static/css/main.69a5c4ed.chunk.css.map",
-    "static/js/2.75b9fb6d.chunk.js.LICENSE.txt": "/gopher-tunneler/static/js/2.75b9fb6d.chunk.js.LICENSE.txt",
-    "static/media/GopherTnlr.PNG": "/gopher-tunneler/static/media/GopherTnlr.2fecbe69.PNG"
+    "main.css": "/gophertunneler.com/static/css/main.69a5c4ed.chunk.css",
+    "main.js": "/gophertunneler.com/static/js/main.8109fbe4.chunk.js",
+    "main.js.map": "/gophertunneler.com/static/js/main.8109fbe4.chunk.js.map",
+    "runtime-main.js": "/gophertunneler.com/static/js/runtime-main.b02aa635.js",
+    "runtime-main.js.map": "/gophertunneler.com/static/js/runtime-main.b02aa635.js.map",
+    "static/css/2.7c35e809.chunk.css": "/gophertunneler.com/static/css/2.7c35e809.chunk.css",
+    "static/js/2.75b9fb6d.chunk.js": "/gophertunneler.com/static/js/2.75b9fb6d.chunk.js",
+    "static/js/2.75b9fb6d.chunk.js.map": "/gophertunneler.com/static/js/2.75b9fb6d.chunk.js.map",
+    "index.html": "/gophertunneler.com/index.html",
+    "precache-manifest.b792efea2fe6f0bfd3ffb2a3e4204327.js": "/gophertunneler.com/precache-manifest.b792efea2fe6f0bfd3ffb2a3e4204327.js",
+    "service-worker.js": "/gophertunneler.com/service-worker.js",
+    "static/css/2.7c35e809.chunk.css.map": "/gophertunneler.com/static/css/2.7c35e809.chunk.css.map",
+    "static/css/main.69a5c4ed.chunk.css.map": "/gophertunneler.com/static/css/main.69a5c4ed.chunk.css.map",
+    "static/js/2.75b9fb6d.chunk.js.LICENSE.txt": "/gophertunneler.com/static/js/2.75b9fb6d.chunk.js.LICENSE.txt",
+    "static/media/GopherTnlr.PNG": "/gophertunneler.com/static/media/GopherTnlr.2fecbe69.PNG"
   },
   "entrypoints": [
-    "static/js/runtime-main.ac54bd87.js",
+    "static/js/runtime-main.b02aa635.js",
     "static/css/2.7c35e809.chunk.css",
     "static/js/2.75b9fb6d.chunk.js",
     "static/css/main.69a5c4ed.chunk.css",
-    "static/js/main.c476087b.chunk.js"
+    "static/js/main.8109fbe4.chunk.js"
   ]
 }
