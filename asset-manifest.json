@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/SASE-Labs-2021.github.io/gopher-tunneler/static/css/main.69a5c4ed.chunk.css",
-    "main.js": "/SASE-Labs-2021.github.io/gopher-tunneler/static/js/main.a878a3af.chunk.js",
-    "main.js.map": "/SASE-Labs-2021.github.io/gopher-tunneler/static/js/main.a878a3af.chunk.js.map",
-    "runtime-main.js": "/SASE-Labs-2021.github.io/gopher-tunneler/static/js/runtime-main.0adac239.js",
-    "runtime-main.js.map": "/SASE-Labs-2021.github.io/gopher-tunneler/static/js/runtime-main.0adac239.js.map",
-    "static/css/2.7c35e809.chunk.css": "/SASE-Labs-2021.github.io/gopher-tunneler/static/css/2.7c35e809.chunk.css",
-    "static/js/2.75b9fb6d.chunk.js": "/SASE-Labs-2021.github.io/gopher-tunneler/static/js/2.75b9fb6d.chunk.js",
-    "static/js/2.75b9fb6d.chunk.js.map": "/SASE-Labs-2021.github.io/gopher-tunneler/static/js/2.75b9fb6d.chunk.js.map",
-    "index.html": "/SASE-Labs-2021.github.io/gopher-tunneler/index.html",
-    "precache-manifest.d3a9ab0e058c3a097505d1d8a3f9ebc5.js": "/SASE-Labs-2021.github.io/gopher-tunneler/precache-manifest.d3a9ab0e058c3a097505d1d8a3f9ebc5.js",
-    "service-worker.js": "/SASE-Labs-2021.github.io/gopher-tunneler/service-worker.js",
-    "static/css/2.7c35e809.chunk.css.map": "/SASE-Labs-2021.github.io/gopher-tunneler/static/css/2.7c35e809.chunk.css.map",
-    "static/css/main.69a5c4ed.chunk.css.map": "/SASE-Labs-2021.github.io/gopher-tunneler/static/css/main.69a5c4ed.chunk.css.map",
-    "static/js/2.75b9fb6d.chunk.js.LICENSE.txt": "/SASE-Labs-2021.github.io/gopher-tunneler/static/js/2.75b9fb6d.chunk.js.LICENSE.txt",
-    "static/media/GopherTnlr.PNG": "/SASE-Labs-2021.github.io/gopher-tunneler/static/media/GopherTnlr.2fecbe69.PNG"
+    "main.css": "/SASE-Labs-2020.github.io/gopher-tunneler/static/css/main.69a5c4ed.chunk.css",
+    "main.js": "/SASE-Labs-2020.github.io/gopher-tunneler/static/js/main.f974e819.chunk.js",
+    "main.js.map": "/SASE-Labs-2020.github.io/gopher-tunneler/static/js/main.f974e819.chunk.js.map",
+    "runtime-main.js": "/SASE-Labs-2020.github.io/gopher-tunneler/static/js/runtime-main.e0bea354.js",
+    "runtime-main.js.map": "/SASE-Labs-2020.github.io/gopher-tunneler/static/js/runtime-main.e0bea354.js.map",
+    "static/css/2.7c35e809.chunk.css": "/SASE-Labs-2020.github.io/gopher-tunneler/static/css/2.7c35e809.chunk.css",
+    "static/js/2.75b9fb6d.chunk.js": "/SASE-Labs-2020.github.io/gopher-tunneler/static/js/2.75b9fb6d.chunk.js",
+    "static/js/2.75b9fb6d.chunk.js.map": "/SASE-Labs-2020.github.io/gopher-tunneler/static/js/2.75b9fb6d.chunk.js.map",
+    "index.html": "/SASE-Labs-2020.github.io/gopher-tunneler/index.html",
+    "precache-manifest.a98000f8020d3ac164902cf3ec95c09b.js": "/SASE-Labs-2020.github.io/gopher-tunneler/precache-manifest.a98000f8020d3ac164902cf3ec95c09b.js",
+    "service-worker.js": "/SASE-Labs-2020.github.io/gopher-tunneler/service-worker.js",
+    "static/css/2.7c35e809.chunk.css.map": "/SASE-Labs-2020.github.io/gopher-tunneler/static/css/2.7c35e809.chunk.css.map",
+    "static/css/main.69a5c4ed.chunk.css.map": "/SASE-Labs-2020.github.io/gopher-tunneler/static/css/main.69a5c4ed.chunk.css.map",
+    "static/js/2.75b9fb6d.chunk.js.LICENSE.txt": "/SASE-Labs-2020.github.io/gopher-tunneler/static/js/2.75b9fb6d.chunk.js.LICENSE.txt",
+    "static/media/GopherTnlr.PNG": "/SASE-Labs-2020.github.io/gopher-tunneler/static/media/GopherTnlr.2fecbe69.PNG"
   },
   "entrypoints": [
-    "static/js/runtime-main.0adac239.js",
+    "static/js/runtime-main.e0bea354.js",
     "static/css/2.7c35e809.chunk.css",
     "static/js/2.75b9fb6d.chunk.js",
     "static/css/main.69a5c4ed.chunk.css",
-    "static/js/main.a878a3af.chunk.js"
+    "static/js/main.f974e819.chunk.js"
   ]
 }

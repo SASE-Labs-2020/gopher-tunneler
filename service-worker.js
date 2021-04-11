@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/SASE-Labs-2021.github.io/gopher-tunneler/precache-manifest.d3a9ab0e058c3a097505d1d8a3f9ebc5.js"
+  "/SASE-Labs-2020.github.io/gopher-tunneler/precache-manifest.a98000f8020d3ac164902cf3ec95c09b.js"
 );
 
 self.addEventListener('message', (event) => {
@@ -33,7 +33,7 @@ workbox.core.clientsClaim();
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/SASE-Labs-2021.github.io/gopher-tunneler/index.html"), {
+workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/SASE-Labs-2020.github.io/gopher-tunneler/index.html"), {
   
   blacklist: [/^\/_/,/\/[^/?]+\.[^/]+$/],
 });
